@@ -4,14 +4,18 @@ const request = require("supertest");
  * @param {string} path - O caminho da API para a requisição.
  * @returns {Promise<string>} - O corpo da resposta como string.
  */
+const baseURL = "https://reqres.in/api";
+
 async function getRequest(path) {
   try {
-    const response = await request("https://automationexercise.com/api")
+    const response = await request(baseURL)
       .get(path)
-      .expect("Content-Type", "text/html; charset=utf-8")
+      .set('accept', 'application/json')
+      .set('x-api-key', 'reqres-free-v1')
+      .expect('Content-Type', "application/json; charset=utf-8")
       .expect(200);
-    
-    return response.text;
+
+    return response.body;
   } catch (error) {
     console.error("Erro na requisição:", error);
     throw error;
