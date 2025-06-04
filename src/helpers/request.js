@@ -4,7 +4,7 @@ const request = require("supertest");
  * @param {string} path - O caminho da API para a requisição.
  * @returns {Promise<string>} - O corpo da resposta como string.
  */
-const baseURL = "https://reqres.in/api";
+const baseURL = "https://fakestoreapi.com";
 
 async function getRequest(path) {
   try {
@@ -15,7 +15,7 @@ async function getRequest(path) {
       .expect('Content-Type', "application/json; charset=utf-8")
       .expect(200);
 
-    return response.body;
+    return response.text ? JSON.parse(response.text) : response.body;
   } catch (error) {
     console.error(`Erro na requisição: ${path}`, error);
     throw error;
@@ -31,7 +31,7 @@ async function postRequest(path, body) {
       .set('x-api-key', 'reqres-free-v1')
       .send(body)
       .expect('Content-Type', "application/json; charset=utf-8")
-      // .expect(200)
+      .expect(200)
 
     return response.text ? JSON.parse(response.text) : response.body;
   } catch (error) {
