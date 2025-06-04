@@ -11,7 +11,7 @@ function generateValidUserData(overrides = {}) {
     const defaultUserData = {
         name: faker.person.fullName(),
         email: faker.internet.email({
-            provider: 'test.automationexercise.com'
+            provider: '@reqres.in'
         }).toLowerCase(),
         password: faker.internet.password({
             length: 10,

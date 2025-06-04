@@ -1,7 +1,7 @@
 {
   "name": "qa.automation-service.jest",
   "version": "1.0.0",
-  "description": "Framework para automação de API utilizando Jest + supertest",
+  "description": "Framework para automação de API utilizando Jest + Supertest",
   "main": "index.js",
   "scripts": {
     "test": "jest __Test__/**/*.spec.js"
@@ -17,13 +17,12 @@
   },
   "homepage": "https://github.com/pricaimiTech/qa.automation-service.jest#readme",
   "devDependencies": {
+    "@babel/core": "^7.27.4",
     "@babel/preset-env": "^7.27.2",
     "@faker-js/faker": "^9.8.0",
-    "chai": "^5.2.0",
+    "babel-jest": "^30.0.0-beta.3",
     "jest": "^29.7.0",
-    "joi": "^17.13.3",
     "jsonschema": "^1.5.0",
-    "moment": "^2.30.1",
     "supertest": "^7.1.1"
   }
 }

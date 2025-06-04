@@ -1,6 +1,4 @@
-import {expect} from 'chai';
-
-
+const assert = require('assert');
 const {
     getRequest
 } = require('../../src/helpers/request');
@@ -16,6 +14,6 @@ describe('List users', function () {
     });
 
     it('[CT-001] Retornou o numero de registros desejados', function () {
-        expect(response.data.length).to.equal(2);
+        assert.strictEqual(response.data.length, 2);
     });
 });

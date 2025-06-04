@@ -17,11 +17,32 @@ async function getRequest(path) {
 
     return response.body;
   } catch (error) {
-    console.error("Erro na requisição:", error);
+    console.error(`Erro na requisição: ${path}`, error);
     throw error;
   }
 }
 
+async function postRequest(path, body) {
+
+  try {
+    const response = await request(baseURL)
+      .post(path)
+      .set('accept', 'application/json')
+      .set('x-api-key', 'reqres-free-v1')
+      .send(body)
+      .expect('Content-Type', "application/json; charset=utf-8")
+      // .expect(200)
+
+    return response.text ? JSON.parse(response.text) : response.body;
+  } catch (error) {
+    console.error(`Erro na requisição: ${path}`, error);
+    throw error;
+  }
+}
+
+
+
 module.exports = {
-  getRequest
+  getRequest,
+  postRequest
 }

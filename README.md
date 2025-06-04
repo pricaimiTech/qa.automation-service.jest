@@ -1,19 +1,55 @@
-# qa.automation-service.jest
+# QA Automation Service com Jest
 
-### Descrição
-Este repositório é um framework base para automação de testes de uma API REST, utilizando Jest e Supertest. Destina-se a validar tanto o contrato quanto os testes funcionais da API. O projeto utiliza a API disponibilizada em reqres.in.
+Este repositório contém um framework de automação de testes para APIs, utilizando Jest, Supertest e JsonSchema.
 
-### Estrutura do Projeto
 
-- **Nome do Projeto**: qa.automation-service.jest
-- **Versão**: 1.0.0
-- **Descrição**: Framework para automação de API utilizando Jest + Supertest
-- **API Utilizado**: [API de exemplo](reqres.in)
+### Documentações para estudar
 
-### Scripts Disponíveis
+- **Documentação assert**: [documentação node/assert](https://nodejs.org/api/assert.html)
+- **API Utilizada**: [API de exemplo](reqres.in)
 
-**contract**: Executa testes de contrato localizados em `__Test__/contract/**/*.spec.js`
+### Ferramentas Principais
 
+- **Jest**: Utilizado para execução dos testes.
+- **Supertest**: Utilizado para requisições HTTP em testes.
+- **JsonSchema**: Utilizado para validação de conformidade das respostas das APIs.
+
+
+### Arquitetura do projeto
+
+```
+qa.automation-service.jest/
+├── __Test__/
+│   ├── contract/
+│   │   └── listUser.spec.js
+│   ├── functional/
+│       └── listUser.spec.js
+├── coverage/
+├── node_modules/
+├── src/
+│   ├── data/
+│   │   └── user.data.js
+│   ├── helpers/
+│   │   ├── random.js
+│   │   ├── request.js
+│   │   └── schemaValidador.js
+│   └── schema/user/
+│       └── userSchema.json
+├── .babelrc
+├── jest.config.js
+├── package.json
+└── README.md
+```
+
+### Descrição dos Diretórios
+
+- `__Test__`: Contém os testes de contrato e funcionais.
+- `contract`: Testes de contrato para verificar conformidade com os esquemas.
+- `functional`: Testes funcionais para validar funcionalidades completas.
+- `coverage`: Armazena os relatórios de cobertura de código.
+- `data`: Inclui dados de mockup para testes.
+- `helpers`: Contém utilitários para suporte nas funcionalidades de teste.
+- `schema/user`: Armazena os esquemas JSON para validação de respostas.
 
 ### Instalação
 
@@ -31,20 +67,6 @@ As seguintes ferramentas e bibliotecas são utilizadas neste projeto:
 - **supertest**: ^7.1.1 — Testes de API HTTP.
 
 
-### Como utilizar
-
-- Faça um fork do projeto.
-
-## Utilizando IA para te auxiliar
-
-### Para gerar o contrato 
-
-Para gerar o schema com o Joi. Primeiro de o contexto e a ordem. 
-```
-Você um especialista de testes de contrato utilizando joi irei te passar o response e  você me passa como que fica o schema. 
-```
-
-Depois passe o response da sua API. O chat irá te dar o schema utilizando a lib do Joi.
 
 
 ### Observações Finais
